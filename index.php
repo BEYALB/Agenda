@@ -29,13 +29,16 @@ include_once ( 'templates/header.php');
                <tbody>
                  <?php foreach($contacts as $contato):?>
                     <tr>
-                        <td scope="row"> <?=$contato['id']?></td>
+                        <td scope="row" class="col-id"> <?=$contato['id']?></td>
                         <td scope="row"><?=$contato["name"]?></td>
                         <td scope="row"><?=$contato["phone"]?></td>
+                        
                         <td class="actions"> 
-                            <a href="#"><i class="fa-regular fa-eye"></i></a>
-                            <a href="#"><i class="fa-regular fa-pen-to-square"></i></a>
-                            <a href="#"><i class="fa-regular fa-trash-can"></i></a>
+                            <a href="<?=$BASE_URL?>show.php?id=<?=$contato['id']?>"><i class="fa-regular fa-eye check-icon"></i></a>
+                            <a href="#"><i class="fa-regular fa-pen-to-square edit-icon"></i></a>
+                            <button type="submit" class="delete-btn">
+                                <a href="#" ><i class="fa-regular fa-trash-can delete-icon"></i></a>
+                            </button>
                         </td>
 
                     </tr>

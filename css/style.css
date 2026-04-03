@@ -17,8 +17,33 @@
     background-color: #0078bf !important;
     color: #fff !important;
   }
+  .col-id{
+    font-weight: 800;
+  }
+  .actions{
+    text-align: center;
+    width: 150px;
+  }
+  .actions i{
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  .check-icon{
+    color: #1E7E34;
+  }
+    .edit-icon{
+    color: #0078bf;
+  }
+    .delete-icon{
+    color: #bd2130;
+  }
+   
 #empty-list-tex{
     text-align: center;
+}
+.delete-btn{
+    background-color: transparent;
+    border: none;
 }
 
 #msg{
@@ -31,4 +56,39 @@
     margin: 0 auto;
     margin-top: 80px;
 }
+
+/* SHOW CONTATOS */
+
+
+#view-contact-container{
+    max-width: 500px;
+    margin:0 auto;
+}
+.bold{
+    font-weight: 800;
+}
+/* CSS PARA O BUTTON VOLTAR */
+#back-link-container{
+    display: block;
+    width: 500px;
+
+    margin:30px auto 0 ;
+}
+ #back-link{
+     border: 2px solid #0078bf;
+     color: #0078bf;
+     padding: 5px ;
+     border-radius: 5px;
+     
+
+ }
+ #back-link-container:hover{
+    transform:translateY(-10px);
+    transition: transform 0.5s ease-in-out;
+ }
+
+ #back-link:hover{
+    text-decoration: none;
+   transform:translateY(-50px);
+ }
 
