@@ -5,7 +5,7 @@
 
     text-align: center;
     margin: 15px 0 30px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 /* HOME */
@@ -92,3 +92,9 @@
    transform:translateY(-50px);
  }
 
+/* CREATE */
+#edit-form,
+#create-form{
+    max-width: 500px;
+    margin: 0 auto;
+}
