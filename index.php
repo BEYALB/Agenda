@@ -35,9 +35,9 @@ include_once ( 'templates/header.php');
                         
                         <td class="actions"> 
                             <a href="<?=$BASE_URL?>show.php?id=<?=$contato['id']?>"><i class="fa-regular fa-eye check-icon"></i></a>
-                            <a href="#"><i class="fa-regular fa-pen-to-square edit-icon"></i></a>
+                            <a href="<?=$BASE_URL?>edit.php?id=<?=$contato['id']?>"><i class="fa-regular fa-pen-to-square edit-icon"></i></a>
                             <button type="submit" class="delete-btn">
-                                <a href="#" ><i class="fa-regular fa-trash-can delete-icon"></i></a>
+                                <a href="" ><i class="fa-regular fa-trash-can delete-icon"></i></a>
                             </button>
                         </td>
 
