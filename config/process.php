@@ -30,22 +30,67 @@ if(!empty($data)){
    }catch(PDOException $e){
         $_SESSION['msg'] = "Erro ao criar contato: " . $e->getMessage();
    }
-    //header("Location:" . $BASE_URL . "../index.php");
+   
+
+   //atualizar contato
+   }else if($data['type']==='update'){
+
+    $id = $data['id'];
+    $name = $data['name'];
+    $phone = $data['phone'];
+    $observations = $data['observations'];
+    // aqui o :name e um parametro que sera substituido pelo valor da variavel $name
+
+    $query = "UPDATE contacts SET name = :name, phone = :phone, observations = :observations WHERE id = :id";
+    $stmt = $conn->prepare($query);
+
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':observations', $observations);
+    $stmt->bindParam(':id', $id);
+    try
+    {
+        $stmt->execute();
+        $_SESSION['msg'] = "Contato atualizado com sucesso!";
+
+
+   } catch (PDOException $e){
+        $_SESSION['msg'] = "Erro ao atualizar contato: " . $e->getMessage();
+   }
+
+   }else if($data['type']==='delete'){
+
+    $id = $data['id'];
+    $query = "DELETE FROM contacts WHERE id = :id";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id', $id);
+    try
+    {
+        $stmt->execute();
+        $_SESSION['msg'] = "Contato deletado com sucesso!";
+
+   } catch (PDOException $e){
+        $_SESSION['msg'] = "Erro ao deletar contato: " . $e->getMessage();
+   }
+
    }
    // redirect
    header("Location:" . $BASE_URL . "../index.php");
 
    // SELECÇÃO DE DADOS
-}else{
+} else{
     
 $id;
+$type;
 //esta invertido true se existirem parametros na url
 if(!empty($_GET)){
     $id =$_GET['id'];
+
  
 }
 // Retorna dados de um contato
 if(!empty($id)){
+   // print_r($type); exit;
 
     $query = "SELECT * FROM contacts WHERE id = :id";
     $pronto= $conn->prepare($query);
@@ -53,6 +98,13 @@ if(!empty($id)){
     $pronto->execute();
 
     $contacts = $pronto->fetch();
+
+
+    //deletar contato
+    
+    
+  //  header("Location:" . $BASE_URL . "../index.php");
+     
 
 }else{
 
